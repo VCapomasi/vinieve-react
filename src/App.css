@@ -1,0 +1,167 @@
+main {
+  min-height: 70vh;
+}
+
+section {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #4fc3f7;
+}
+
+section p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.btn {
+  background: #4fc3f7;
+  color: white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #2196f3;
+}
+
+.hero {
+  color: white;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+}
+
+.hero h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #4fc3f7;
+}
+
+.hero p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.nosotros {
+  background: white;
+}
+
+.nosotros p {
+  max-width: 70%;
+  margin: 20px auto 2rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.nosotros-video {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  height: auto;
+}
+
+.productos-page {
+  background: #f8f9fa;
+}
+
+.carrito-page,
+.detalle-page,
+.pagina-error {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.detalle-card {
+  max-width: 850px;
+  margin: 0 auto;
+  background: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.detalle-card img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.detalle-info h2 {
+  color: #1a2a3a;
+  margin-bottom: 1rem;
+}
+
+.detalle-precio {
+  color: #4fc3f7;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 55vh;
+  }
+
+  .hero h2 {
+    font-size: 1.7rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .nosotros p {
+    max-width: 95%;
+  }
+
+  .detalle-card {
+    grid-template-columns: 1fr;
+  }
+}

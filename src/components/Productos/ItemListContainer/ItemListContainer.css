@@ -1,0 +1,15 @@
+.productos-section {
+  background-color: #f8f9fa;
+  padding: 4rem 2rem;
+}
+
+.estado-carga,
+.estado-error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+}
+
+.estado-error {
+  color: #b00020;
+}
