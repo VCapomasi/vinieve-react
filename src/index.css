@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  background: #f8f9fa;
+  line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+button, input, textarea { font-family: inherit; }
+
+.header {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo img { width: 60px; }
+.logo h1 { color: #fff; font-size: 2.5rem; font-weight: 700; }
+
+.nav {
+  background: #1a2a3a;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.nav-links a, .nav-actions a, .btn-cuenta {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: .45rem .7rem;
+  border-radius: 6px;
+}
+
+.nav-links a:hover, .nav-links a.active, .nav-actions a:hover, .btn-cuenta:hover { background: #4fc3f7; }
+
+.nav-actions {
+  position: absolute;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+
+.icon-link span {
+  background: #4fc3f7;
+  color: white;
+  border-radius: 50%;
+  padding: .1rem .45rem;
+  font-size: .8rem;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  left: 1rem;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: white;
+  border-radius: 4px;
+}
+
+.hero {
+  min-height: 420px;
+  background: linear-gradient(rgba(26,42,58,.55), rgba(26,42,58,.45)), url('/images/banner.jpg') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero h2 { font-size: 2.6rem; margin-bottom: 1rem; }
+.hero p { font-size: 1.2rem; margin-bottom: 1.5rem; }
+
+.seccion, .productos-section, .carrito, .nosotros, .gestion, .confirmacion, .auth-page, .contacto-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.seccion h2, .productos-section h2, .carrito h2, .nosotros h2, .gestion h2, .confirmacion h2, .contacto-section h2, .auth-page h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #1a2a3a;
+  margin-bottom: 2rem;
+}
+
+.btn-principal, .btn-comprar, .btn-secundario, .btn-enviar {
+  display: inline-block;
+  background: #4fc3f7;
+  color: white;
+  border: none;
+  padding: .85rem 1.2rem;
+  border-radius: 7px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-principal:hover, .btn-comprar:hover, .btn-enviar:hover { background: #2196f3; }
+.btn-secundario { background: #1a2a3a; margin-top: .8rem; width: 100%; }
+.boton-cancelar { max-width: 500px; margin: 0 auto 2rem; display: block; }
+
+.buscador {
+  display: block;
+  width: min(500px, 100%);
+  margin: 0 auto 2rem;
+  padding: .9rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.6rem;
+}
+
+.producto-card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+  transition: transform .25s, box-shadow .25s;
+}
+
+.producto-card:hover { transform: translateY(-5px); box-shadow: 0 8px 22px rgba(0,0,0,.15); }
+
+.producto-imagen {
+  height: 250px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.producto-imagen img { width: 100%; height: 100%; object-fit: cover; }
+.producto-info { padding: 1.4rem; text-align: center; }
+.producto-info h3 { color: #1a2a3a; margin-bottom: .6rem; font-size: 1.25rem; }
+.producto-info p { color: #666; margin-bottom: .8rem; }
+.stock { font-weight: 700; color: #333 !important; }
+.producto-precio { color: #4fc3f7 !important; font-size: 1.7rem; font-weight: 700; }
+.btn-comprar { width: 100%; }
+.estado-carga { text-align: center; margin: 2rem; }
+
+.detalle {
+  max-width: 1000px;
+  margin: auto;
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.detalle img { width: 100%; border-radius: 16px; background: white; box-shadow: 0 4px 14px rgba(0,0,0,.1); }
+.detalle h2 { color: #1a2a3a; font-size: 2.2rem; margin-bottom: 1rem; }
+.detalle p { margin-bottom: 1rem; }
+
+.carrito-layout { display: grid; grid-template-columns: 1fr 330px; gap: 2rem; }
+.carrito-item {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 80px 1fr auto auto;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,.08);
+}
+
+.carrito-item img { width: 80px; height: 70px; object-fit: cover; border-radius: 8px; }
+.cantidad { display: flex; align-items: center; gap: .5rem; }
+.cantidad button, .btn-eliminar { padding: .35rem .6rem; border: none; border-radius: 6px; cursor: pointer; }
+.btn-eliminar { background: #ff4d6d; color: white; }
+
+.resumen { background: #1a2a3a; color: white; padding: 1.5rem; border-radius: 14px; height: fit-content; }
+.resumen input { width: 100%; padding: .8rem; margin: 1rem 0 .5rem; border: 1px solid #ddd; border-radius: 6px; }
+.resumen > button:not(.btn-principal):not(.btn-secundario) { background: #4fc3f7; color: white; border: none; padding: .7rem 1rem; border-radius: 6px; cursor: pointer; }
+.resumen p, .resumen h3 { margin: 1rem 0; }
+.resumen .btn-principal { width: 100%; }
+.confirmacion { text-align: center; min-height: 360px; }
+.confirmacion p { margin-bottom: 1.5rem; }
+
+.nosotros p { max-width: 850px; margin: 0 auto 2.5rem; text-align: center; font-size: 1.05rem; }
+.nosotros h3 { text-align: center; color: #4fc3f7; font-size: 2rem; margin-bottom: 1.5rem; }
+.equipo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.4rem; }
+.equipo-card { background: #4fc3f7; color: white; padding: 1.5rem; border-radius: 18px; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+.equipo-card img { width: 115px; height: 115px; object-fit: cover; border-radius: 50%; border: 3px solid white; margin-bottom: 1rem; }
+.equipo-card p { color: rgba(255,255,255,.82); }
+
+.contacto-section { background: #e9ebef; max-width: none; text-align: center; }
+.contacto-section > p { margin-bottom: 2rem; }
+.formulario-contacto, .auth-card, .formulario-producto {
+  max-width: 620px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+  text-align: left;
+}
+
+.form-group, .form-simple label, .formulario-producto label { margin-bottom: .5rem; display: block; font-weight: 700; color: #333; }
+.form-group input, .form-group textarea, .form-simple input, .formulario-producto input, .formulario-producto textarea {
+  width: 100%;
+  padding: .85rem;
+  border: 2px solid #ddd;
+  border-radius: 7px;
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+}
+.form-group textarea, .formulario-producto textarea { min-height: 110px; resize: vertical; }
+.btn-enviar { width: 100%; font-size: 1.05rem; }
+.auth-card { text-align: center; }
+.auth-card .form-simple { text-align: left; }
+.auth-card a { color: #2196f3; font-weight: 700; }
+.ayuda-login { font-size: .85rem; margin: 1rem 0; color: #666; }
+
+.gestion-ayuda { text-align: center; margin-bottom: 1.5rem; color: #555; }
+.formulario-producto h3 { text-align: center; color: #1a2a3a; margin-bottom: 1.2rem; }
+.formulario-producto .btn-principal { width: 100%; }
+.tabla-gestion { margin-top: 2rem; display: grid; gap: 1rem; }
+.fila-gestion { background: white; padding: 1rem; border-radius: 12px; display: grid; grid-template-columns: 80px 1fr auto auto; gap: 1rem; align-items: center; box-shadow: 0 3px 10px rgba(0,0,0,.08); }
+.cupones-lista .fila-gestion { grid-template-columns: 1fr auto auto; }
+.fila-gestion img { width: 80px; height: 70px; object-fit: cover; border-radius: 8px; }
+.fila-gestion h3 { color: #1a2a3a; }
+
+.footer { background: #1a2a3a; color: white; padding: 2rem 1rem 1rem; text-align: center; }
+.footer-content { max-width: 1200px; margin: 0 auto 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; align-items: center; }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: center; }
+.footer-nav a:hover, .footer-bottom a { color: #4fc3f7; }
+.footer-logo a { display: flex; flex-direction: column; align-items: center; gap: .4rem; }
+.footer-logo img { width: 70px; }
+.footer-logo h2 { color: white; font-size: 1.6rem; }
+.footer-section h3 { color: #4fc3f7; font-size: 2rem; margin-bottom: 1rem; }
+.footer-section p { color: rgba(255,255,255,.8); line-height: 1.8; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: .8rem; color: rgba(255,255,255,.65); font-size: .9rem; }
+
+@media (max-width: 768px) {
+  .header { padding: 1.5rem 1rem; }
+  .logo h1 { font-size: 2rem; }
+  .logo img { width: 50px; }
+
+  .nav { justify-content: space-between; min-height: 64px; padding: 1rem; }
+  .hamburger { display: flex; }
+  .nav-links {
+    position: absolute;
+    top: 64px;
+    left: -100%;
+    width: 230px;
+    background: #1a2a3a;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    gap: .8rem;
+    transition: .3s;
+    border-radius: 0 0 12px 0;
+  }
+  .nav-links.active { left: 0; }
+  .nav-actions { position: static; margin-left: auto; }
+  .btn-cuenta { font-size: .9rem; }
+
+  .hero h2 { font-size: 2rem; }
+  .detalle, .carrito-layout { grid-template-columns: 1fr; }
+  .carrito-item { grid-template-columns: 70px 1fr; }
+  .cantidad, .btn-eliminar { grid-column: span 2; }
+  .fila-gestion, .cupones-lista .fila-gestion { grid-template-columns: 1fr; text-align: center; }
+  .fila-gestion img { margin: auto; }
+}
