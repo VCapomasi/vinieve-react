@@ -1,37 +1,46 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { auth, db } from '../firebase/config.js';
 
 const AuthContext = createContext();
-
-export function useAuth() {
-  return useContext(AuthContext);
-}
+export const useAuth = () => useContext(AuthContext);
 
 export function AuthProvider({ children }) {
-  const [usuario, setUsuario] = useState(null);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const login = (email, password) => {
-    if (email === 'norberto@vinieve.com' && password === 'react2026') {
-      setUsuario({ nombre: 'Norberto', email, rol: 'admin', imagen: '/images/icon_user.png' });
-      return true;
-    }
-    alert('Usuario o contraseña incorrectos. Probá con norberto@vinieve.com / react2026');
-    return false;
-  };
+  const signup = (email, password) => createUserWithEmailAndPassword(auth, email, password);
+  const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
+  const logout = () => signOut(auth);
 
-  const registro = (email, password) => {
-    if (!email || password.length < 6) {
-      alert('Ingresá un email y una contraseña de al menos 6 caracteres.');
-      return false;
-    }
-    setUsuario({ nombre: 'Usuario', email, rol: 'user', imagen: '/images/icon_user.png' });
-    return true;
-  };
-
-  const logout = () => setUsuario(null);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      if (currentUser) {
+        const userDocRef = doc(db, 'usuarios', currentUser.uid);
+        const userDocSnap = await getDoc(userDocRef);
+        if (userDocSnap.exists()) {
+          setUser({ uid: currentUser.uid, email: currentUser.email, ...userDocSnap.data() });
+        } else {
+          const datos = {
+            nombre: currentUser.email === 'norberto@vinieve.com' ? 'Norberto' : 'Usuario',
+            email: currentUser.email,
+            rol: currentUser.email === 'norberto@vinieve.com' ? 'admin' : 'user'
+          };
+          await setDoc(userDocRef, datos);
+          setUser({ uid: currentUser.uid, ...datos });
+        }
+      } else {
+        setUser(null);
+      }
+      setLoading(false);
+    });
+    return () => unsubscribe();
+  }, []);
 
   return (
-    <AuthContext.Provider value={{ usuario, login, registro, logout }}>
-      {children}
+    <AuthContext.Provider value={{ user, loading, signup, login, logout }}>
+      {!loading && children}
     </AuthContext.Provider>
   );
 }
